@@ -1,0 +1,57 @@
+{
+	"name": "@nakanoaas/eslint-plugin-tagged-error",
+	"description": "ESLint plugin to check for duplicate TaggedError tags across the project",
+	"author": "Nakano as a Service",
+	"version": "0.0.1",
+	"license": "ISC",
+	"type": "module",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.cts",
+	"sideEffects": false,
+	"publishConfig": {
+		"access": "public",
+		"provenance": true
+	},
+	"exports": {
+		".": {
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.mjs"
+		},
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"build": "tsdown",
+		"check:fix": "biome check --write",
+		"check": "biome check",
+
+		"test": "node src/rules/no-duplicate-tags.test.ts"
+	},
+	"homepage": "https://github.com/nakanoasaservice/eslint-plugin-tagged-error",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nakanoasaservice/eslint-plugin-tagged-error.git"
+	},
+	"bugs": {
+		"url": "https://github.com/nakanoasaservice/eslint-plugin-tagged-error/issues"
+	},
+	"keywords": [
+		"eslint",
+		"eslintplugin",
+		"tagged-error",
+		"error-handling"
+	],
+	"packageManager": "pnpm@10.26.1",
+	"peerDependencies": {
+		"eslint": ">=8.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.10",
+		"@types/eslint": "^9.6.1",
+		"@types/estree": "^1.0.5",
+		"@types/node": "^22.10.2",
+		"eslint": "^9.17.0",
+		"tsdown": "^0.18.4",
+		"typescript": "^5.9.3"
+	}
+}
