@@ -24,7 +24,6 @@
 		"build": "tsdown",
 		"check:fix": "biome check --write",
 		"check": "biome check",
-
 		"test": "node src/rules/no-duplicate-tags.test.ts"
 	},
 	"homepage": "https://github.com/nakanoasaservice/eslint-plugin-tagged-error",
