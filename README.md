@@ -20,14 +20,7 @@ Add the plugin to your `eslint.config.js`:
 import taggedError from "@nakanoaas/eslint-plugin-tagged-error";
 
 export default [
-  {
-    plugins: {
-      "tagged-error": taggedError,
-    },
-    rules: {
-      "tagged-error/no-duplicate-tags": "error",
-    },
-  },
+  taggedError.configs.recommended,
 ];
 ```
 
