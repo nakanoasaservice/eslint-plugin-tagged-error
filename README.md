@@ -1,5 +1,7 @@
 # @nakanoaas/eslint-plugin-tagged-error
 
+[![npm version](https://img.shields.io/npm/v/%40nakanoaas%2Feslint-plugin-tagged-error)](https://www.npmjs.com/package/@nakanoaas/eslint-plugin-tagged-error) [![JSR](https://jsr.io/badges/@nakanoaas/eslint-plugin-tagged-error)](https://jsr.io/@nakanoaas/eslint-plugin-tagged-error)
+
 ESLint plugin to check for duplicate `TaggedError` tags across the entire project.
 
 ## Installation
