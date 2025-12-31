@@ -2,7 +2,7 @@
 	"name": "@nakanoaas/eslint-plugin-tagged-error",
 	"description": "ESLint plugin to check for duplicate TaggedError tags across the project",
 	"author": "Nakano as a Service",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "ISC",
 	"type": "module",
 	"main": "./dist/index.cjs",
