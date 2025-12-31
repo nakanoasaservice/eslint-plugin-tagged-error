@@ -20,6 +20,9 @@
 		},
 		"./package.json": "./package.json"
 	},
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "tsdown",
 		"check:fix": "biome check --write",
