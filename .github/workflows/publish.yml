@@ -1,9 +1,7 @@
 name: Publish
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -12,8 +10,8 @@ permissions:
 
 jobs:
   publish:
-    name: Publish
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout Repo
