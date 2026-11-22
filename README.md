@@ -80,3 +80,7 @@ Use Node.js 24 and the pnpm version pinned in `package.json`.
 Run `pnpm install --frozen-lockfile`, `pnpm check`, `pnpm test`, and `pnpm build`.
 Vite+ provides formatting, linting, type checks, tests and packaging. ESLint
 remains a dependency because this package implements and tests an ESLint plugin.
+
+Update Vite+ and its bundled tools together with `vp migrate`, then update the
+pinned `setup-vp` version in CI and refresh the pnpm lockfile. Run the project's
+checks before committing toolchain updates.
