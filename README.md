@@ -21,9 +21,7 @@ Add the plugin to your `eslint.config.js`:
 ```javascript
 import taggedError from "@nakanoaas/eslint-plugin-tagged-error";
 
-export default [
-  taggedError.configs.recommended,
-];
+export default [taggedError.configs.recommended];
 ```
 
 ## Rules
@@ -39,7 +37,7 @@ Checks for duplicate `TaggedError` tags across the entire project.
 import { TaggedError } from "@nakanoaas/tagged-error";
 
 function error1() {
-  return new TaggedError("DUPLICATE_TAG", { message: "Error 1" });
+	return new TaggedError("DUPLICATE_TAG", { message: "Error 1" });
 }
 ```
 
@@ -48,7 +46,7 @@ function error1() {
 import { TaggedError } from "@nakanoaas/tagged-error";
 
 function error2() {
-  return new TaggedError("DUPLICATE_TAG", { message: "Error 2" });
+	return new TaggedError("DUPLICATE_TAG", { message: "Error 2" });
 }
 ```
 
@@ -59,7 +57,7 @@ function error2() {
 import { TaggedError } from "@nakanoaas/tagged-error";
 
 function error1() {
-  return new TaggedError("UNIQUE_TAG_1", { message: "Error 1" });
+	return new TaggedError("UNIQUE_TAG_1", { message: "Error 1" });
 }
 ```
 
@@ -68,7 +66,7 @@ function error1() {
 import { TaggedError } from "@nakanoaas/tagged-error";
 
 function error2() {
-  return new TaggedError("UNIQUE_TAG_2", { message: "Error 2" });
+	return new TaggedError("UNIQUE_TAG_2", { message: "Error 2" });
 }
 ```
 
@@ -76,3 +74,9 @@ function error2() {
 
 ISC
 
+## Development
+
+Use Node.js 24 and the pnpm version pinned in `package.json`.
+Run `pnpm install --frozen-lockfile`, `pnpm check`, `pnpm test`, and `pnpm build`.
+Vite+ provides formatting, linting, type checks, tests and packaging. ESLint
+remains a dependency because this package implements and tests an ESLint plugin.

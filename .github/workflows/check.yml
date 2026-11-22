@@ -15,22 +15,21 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v6
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: Setup Vite+
+        uses: voidzero-dev/setup-vp@v1.22.0
         with:
-          run_install: false
+          version: "1.7.0"
+          node-version-file: .node-version
+          cache: true
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: pnpm
-
-      - name: Install Dependencies
-        run: pnpm install
-
-      - name: Run Biome Check
+      - name: Run Check
         run: pnpm run check
 
       - name: Run Tests
         run: pnpm run test
+
+      - name: Build packages
+        run: pnpm build
+
+      - name: Check JSR package
+        run: pnpm exec jsr publish --dry-run --allow-slow-types

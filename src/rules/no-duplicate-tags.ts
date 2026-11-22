@@ -22,10 +22,7 @@ function extractTagFromCall(node: estree.NewExpression): string | null {
 		isTaggedError = node.callee.name === "TaggedError";
 	} else if (node.callee.type === "MemberExpression") {
 		// Also detect when imported from @nakanoaas/tagged-error
-		if (
-			node.callee.property.type === "Identifier" &&
-			node.callee.property.name === "TaggedError"
-		) {
+		if (node.callee.property.type === "Identifier" && node.callee.property.name === "TaggedError") {
 			isTaggedError = true;
 		}
 	}
@@ -35,11 +32,7 @@ function extractTagFromCall(node: estree.NewExpression): string | null {
 	}
 
 	const firstArg = node.arguments[0];
-	if (
-		firstArg &&
-		firstArg.type === "Literal" &&
-		typeof firstArg.value === "string"
-	) {
+	if (firstArg && firstArg.type === "Literal" && typeof firstArg.value === "string") {
 		return firstArg.value;
 	}
 
@@ -50,8 +43,7 @@ export const noDuplicateTags: Rule.RuleModule = {
 	meta: {
 		type: "problem",
 		docs: {
-			description:
-				"Check for duplicate TaggedError tags across the entire project",
+			description: "Check for duplicate TaggedError tags across the entire project",
 			category: "Possible Errors",
 			recommended: true,
 		},
@@ -81,14 +73,13 @@ export const noDuplicateTags: Rule.RuleModule = {
 					globalTagMap.set(tag, []);
 				}
 
-				// biome-ignore lint/style/noNonNullAssertion: We know the tag is in the map
+				// oxlint-disable-next-line typescript/no-non-null-assertion -- The tag was inserted above.
 				const locations = globalTagMap.get(tag)!;
 				const currentLocation = { file: filename, line, column };
 
 				// Check if already registered at the same location in the same file
 				const isDuplicate = locations.some(
-					(loc) =>
-						loc.file === filename && loc.line === line && loc.column === column,
+					(loc) => loc.file === filename && loc.line === line && loc.column === column,
 				);
 
 				if (!isDuplicate) {
@@ -97,8 +88,7 @@ export const noDuplicateTags: Rule.RuleModule = {
 
 				// Check if the same tag is used in other files
 				const otherLocations = locations.filter(
-					(loc) =>
-						loc.file !== filename || loc.line !== line || loc.column !== column,
+					(loc) => loc.file !== filename || loc.line !== line || loc.column !== column,
 				);
 
 				if (otherLocations.length > 0) {

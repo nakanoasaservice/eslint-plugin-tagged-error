@@ -1,59 +1,59 @@
 {
 	"name": "@nakanoaas/eslint-plugin-tagged-error",
-	"description": "ESLint plugin to check for duplicate TaggedError tags across the project",
-	"author": "Nakano as a Service",
 	"version": "0.0.4",
-	"license": "ISC",
-	"type": "module",
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.cts",
-	"sideEffects": false,
-	"publishConfig": {
-		"access": "public",
-		"provenance": true
-	},
-	"exports": {
-		".": {
-			"require": "./dist/index.cjs",
-			"import": "./dist/index.mjs"
-		},
-		"./package.json": "./package.json"
-	},
-	"files": [
-		"dist"
+	"description": "ESLint plugin to check for duplicate TaggedError tags across the project",
+	"keywords": [
+		"error-handling",
+		"eslint",
+		"eslintplugin",
+		"tagged-error"
 	],
-	"scripts": {
-		"build": "tsdown",
-		"check:fix": "biome check --write",
-		"check": "biome check",
-		"test": "node src/rules/no-duplicate-tags.test.ts"
-	},
 	"homepage": "https://github.com/nakanoasaservice/eslint-plugin-tagged-error",
+	"bugs": {
+		"url": "https://github.com/nakanoasaservice/eslint-plugin-tagged-error/issues"
+	},
+	"license": "ISC",
+	"author": "Nakano as a Service",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/nakanoasaservice/eslint-plugin-tagged-error.git"
 	},
-	"bugs": {
-		"url": "https://github.com/nakanoasaservice/eslint-plugin-tagged-error/issues"
-	},
-	"keywords": [
-		"eslint",
-		"eslintplugin",
-		"tagged-error",
-		"error-handling"
+	"files": [
+		"dist"
 	],
-	"packageManager": "pnpm@10.26.1",
-	"peerDependencies": {
-		"eslint": ">=8.0.0"
+	"type": "module",
+	"sideEffects": false,
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.cts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		},
+		"./package.json": "./package.json"
+	},
+	"publishConfig": {
+		"access": "public",
+		"provenance": true
+	},
+	"scripts": {
+		"build": "vp pack",
+		"check:fix": "vp check --fix",
+		"check": "vp check",
+		"test": "vp test run"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.3.10",
 		"@types/eslint": "^9.6.1",
 		"@types/estree": "^1.0.5",
 		"@types/node": "^22.10.2",
 		"eslint": "^9.17.0",
-		"tsdown": "^0.22.0",
-		"typescript": "^5.9.3"
-	}
+		"jsr": "0.14.3",
+		"typescript": "^5.9.3",
+		"vite-plus": "catalog:"
+	},
+	"peerDependencies": {
+		"eslint": ">=8.0.0"
+	},
+	"packageManager": "pnpm@12.21.0"
 }
