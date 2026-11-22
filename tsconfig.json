@@ -8,9 +8,8 @@
 		"strict": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
-
 		"noEmit": true,
 		"erasableSyntaxOnly": true,
 		"forceConsistentCasingInFileNames": true,
@@ -18,7 +17,8 @@
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedIndexedAccess": true,
 		"noPropertyAccessFromIndexSignature": true,
-		"allowImportingTsExtensions": true
+		"allowImportingTsExtensions": true,
+		"module": "preserve"
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules", "dist"]
